@@ -31,7 +31,7 @@ namespace MoonPatrol {
 		}
 
 		void draw(Enemy enemy) {
-			DrawCircle(static_cast<int>(enemy.position.x), static_cast<int>(enemy.position.y), enemy.hitRadius, SKYBLUE);
+			//DrawCircle(static_cast<int>(enemy.position.x), static_cast<int>(enemy.position.y), enemy.hitRadius, SKYBLUE);
 
 			DrawTexture(enemy.sprite, static_cast<int>(enemy.position.x - enemy.hitRadius), static_cast<int>(enemy.position.y - enemy.hitRadius), enemy.color);
 		}

@@ -27,8 +27,8 @@ namespace MoonPatrol {
 		}
 
 		void draw(Obstacle obstacle) {
-			DrawRectangle(static_cast<int>(obstacle.position.x), static_cast<int>(obstacle.position.y), 
-						  static_cast<int>(obstacle.size.x), static_cast<int>(obstacle.size.y), GREEN);
+			//DrawRectangle(static_cast<int>(obstacle.position.x), static_cast<int>(obstacle.position.y), 
+						  //static_cast<int>(obstacle.size.x), static_cast<int>(obstacle.size.y), GREEN);
 
 			DrawTexture(obstacle.sprite, static_cast<int>(obstacle.position.x), static_cast<int>(obstacle.position.y), obstacle.color);
 		}

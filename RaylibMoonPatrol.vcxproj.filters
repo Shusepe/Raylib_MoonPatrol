@@ -20,6 +20,12 @@
     <Filter Include="Resources">
       <UniqueIdentifier>{5e48376c-3077-4998-8332-07f3ba251a8f}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Resources\sfx">
+      <UniqueIdentifier>{8ed50eac-1ac5-4871-8266-dbffa9cfbace}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resources\img">
+      <UniqueIdentifier>{c1d0d481-575d-4c27-9724-d2e196c6a20d}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\main.cpp">
@@ -125,17 +131,22 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <Image Include="res\roverLunarP1.png">
-      <Filter>Resources</Filter>
-    </Image>
-    <Image Include="res\roverLunarP2.png">
-      <Filter>Resources</Filter>
-    </Image>
     <Image Include="res\enemy.png">
-      <Filter>Resources</Filter>
+      <Filter>Resources\img</Filter>
     </Image>
     <Image Include="res\obstacle.png">
-      <Filter>Resources</Filter>
+      <Filter>Resources\img</Filter>
     </Image>
+    <Image Include="res\roverLunarP1.png">
+      <Filter>Resources\img</Filter>
+    </Image>
+    <Image Include="res\roverLunarP2.png">
+      <Filter>Resources\img</Filter>
+    </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <Media Include="sfx\alienshoot1.wav">
+      <Filter>Resources\sfx</Filter>
+    </Media>
   </ItemGroup>
 </Project>

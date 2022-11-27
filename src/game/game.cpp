@@ -206,6 +206,11 @@ namespace MoonPatrol {
 			startTime = chrono::steady_clock::now();
 			twoPlayers = enableTwoPlayers;
 
+			if (!IsAudioDeviceReady())
+			{
+				InitAudioDevice();
+			}
+
 			Terrains::init(floor, GetScreenWidth() * .1f, GetScreenHeight() * .85f, GetScreenHeight() * .75f, 300.0f, { 230, 180, 80, 255 });
 			Terrains::init(mountainsNear, GetScreenWidth() * .2f, GetScreenHeight() * .7f, GetScreenHeight() * .5f, 100.0f, { 145, 120, 50, 255 });
 			Terrains::init(mountainsBack, GetScreenWidth() * .3f, GetScreenHeight() * .7f, GetScreenHeight() * .4f, 50.0f, { 40, 30, 15, 255 });

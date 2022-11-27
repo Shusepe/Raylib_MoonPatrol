@@ -6,7 +6,9 @@ namespace MoonPatrol {
 	namespace Bullets {
 
 		// Private
-		 
+		
+		static char shootSfx[] = "sfx/alienshoot1.wav";
+
 		void move(Bullet& bullet);
 		 
 		// --
@@ -36,6 +38,11 @@ namespace MoonPatrol {
 			move(bullet);
 		}
 
+		void playSound(Bullet bullet) {
+			SetSoundPitch(bullet.shootSound, static_cast<float>((GetRandomValue(0, 15) / 100) + 1));
+			PlaySound(bullet.shootSound);
+		}
+
 		void init(Bullet& bullet, Vector2 position, float radius, float directionAngle, float speed, bool hurtsPlayer) {
 			bullet = create();
 			bullet.position = position;
@@ -43,6 +50,9 @@ namespace MoonPatrol {
 			bullet.directionAngle = directionAngle;
 			bullet.speed = speed;
 			bullet.hurtsPlayer = hurtsPlayer;
+			bullet.shootSound = LoadSound(shootSfx);
+
+			playSound(bullet);
 		}
 
 	}
