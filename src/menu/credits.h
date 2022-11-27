@@ -6,6 +6,8 @@ namespace MoonPatrol {
 			ITCH1,
 			ITCH2,
 			RAYLIB,
+			ASSETS,
+			SOUNDFX,
 			RETURN,
 			COUNT
 		};

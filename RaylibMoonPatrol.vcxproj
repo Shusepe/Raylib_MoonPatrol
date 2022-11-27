@@ -194,6 +194,7 @@
     <Image Include="res\roverLunarP2.png" />
   </ItemGroup>
   <ItemGroup>
+    <Media Include="sfx\music.mp3" />
     <Media Include="sfx\alienshoot1.wav" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

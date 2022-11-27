@@ -101,7 +101,7 @@ namespace MoonPatrol {
 		}
 
 		void drawCredits() {
-			const char* text = "Game built by Mauvemau using Raylib";
+			const char* text = "Game built by Mauvemau and Jose using Raylib";
 			int fontSize = static_cast<int>(GetScreenHeight() * .025f);
 			int textWide = MeasureText(text, fontSize);
 			DrawText(text, static_cast<int>((GetScreenWidth() * .99) - textWide), static_cast<int>((GetScreenHeight() * .99) - fontSize), fontSize, WHITE);

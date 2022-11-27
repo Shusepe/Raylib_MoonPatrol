@@ -19,6 +19,8 @@ using namespace std;
 
 static char vehicleImg[] = "res/roverLunarP1.png";
 static char vehicleImg2[] = "res/roverLunarP2.png";
+static char musicGame[] = "sfx/music.mp3";
+Music music;
 
 namespace MoonPatrol {
 	namespace Game {
@@ -84,24 +86,6 @@ namespace MoonPatrol {
 
 			ObjectManager::draw();
 
-			DrawText(TextFormat("Version: %s", getProgramVersion()),
-				static_cast<int>(GetScreenHeight() * .01f), 
-				static_cast<int>(GetScreenHeight() * .01f), 
-				static_cast<int>(GetScreenHeight() * .04f), 
-				RAYWHITE);
-
-			DrawText(TextFormat("Score: %i", score),
-				static_cast<int>(GetScreenHeight() * .01f),
-				static_cast<int>(GetScreenHeight() * .045f),
-				static_cast<int>(GetScreenHeight() * .05f),
-				RAYWHITE);
-
-			DrawText("Press [ESC] key to return to the menu",
-				static_cast<int>(GetScreenHeight() * .01f),
-				static_cast<int>(GetScreenHeight() * .96f),
-				static_cast<int>(GetScreenHeight() * .035f),
-				RAYWHITE);
-
 			if (paused) {
 				DrawText("Game Over",
 					static_cast<int>(GetScreenWidth() * .05f),
@@ -114,11 +98,31 @@ namespace MoonPatrol {
 					static_cast<int>(GetScreenHeight() * .035f),
 					RAYWHITE);
 				DrawText(TextFormat("Your Score: %i", score),
-						static_cast<int>(GetScreenWidth() * .05f),
-						static_cast<int>(GetScreenHeight() * .55f),
-						static_cast<int>(GetScreenHeight() * .04f),
-						RAYWHITE);
+					static_cast<int>(GetScreenWidth() * .05f),
+					static_cast<int>(GetScreenHeight() * .55f),
+					static_cast<int>(GetScreenHeight() * .04f),
+					RAYWHITE);
 			}
+			else
+			{
+				DrawText(TextFormat("Version: %s", getProgramVersion()),
+					static_cast<int>(GetScreenHeight() * .01f),
+					static_cast<int>(GetScreenHeight() * .01f),
+					static_cast<int>(GetScreenHeight() * .04f),
+					RAYWHITE);
+
+				DrawText(TextFormat("Score: %i", score),
+					static_cast<int>(GetScreenHeight() * .01f),
+					static_cast<int>(GetScreenHeight() * .045f),
+					static_cast<int>(GetScreenHeight() * .05f),
+					RAYWHITE);
+
+				DrawText("Press [ESC] key to return to the menu",
+					static_cast<int>(GetScreenHeight() * .01f),
+					static_cast<int>(GetScreenHeight() * .96f),
+					static_cast<int>(GetScreenHeight() * .035f),
+					RAYWHITE);
+			}			
 
 			EndDrawing();
 		}
@@ -152,6 +156,12 @@ namespace MoonPatrol {
 
 		void update() {
 			if (!paused) {
+				if (!IsMusicStreamPlaying(music))
+				{
+					PlayMusicStream(music);
+				}
+				else UpdateMusicStream(music);
+
 				Input::update(player, player2, twoPlayers);
 
 				Vehicles::update(player);
@@ -209,6 +219,8 @@ namespace MoonPatrol {
 			if (!IsAudioDeviceReady())
 			{
 				InitAudioDevice();
+				music = LoadMusicStream(musicGame);
+				SetMusicVolume(music, 0.15f);
 			}
 
 			Terrains::init(floor, GetScreenWidth() * .1f, GetScreenHeight() * .85f, GetScreenHeight() * .75f, 300.0f, { 230, 180, 80, 255 });
@@ -217,14 +229,14 @@ namespace MoonPatrol {
 
 			Vehicles::init(player,
 						  { static_cast<float>(GetScreenWidth() * .5f), getFloorElevation(static_cast<float>(GetScreenWidth() * .2f)) },
-						  { static_cast<float>(GetScreenHeight() * .2f), static_cast<float>(GetScreenHeight() * .18f) },
+						  { static_cast<float>(GetScreenHeight() * .18f), static_cast<float>(GetScreenHeight() * .15f) },
 						   400.0f, 400.0f, 400.0f, 0, vehicleImg);
 
 			if (twoPlayers)
 			{
 				Vehicles::init(player2,
 					{ static_cast<float>(GetScreenWidth() * .2f), getFloorElevation(static_cast<float>(GetScreenWidth() * .2f)) },
-					{ static_cast<float>(GetScreenHeight() * .2f), static_cast<float>(GetScreenHeight() * .18f) },
+					{ static_cast<float>(GetScreenHeight() * .18f), static_cast<float>(GetScreenHeight() * .15f) },
 					400.0f, 400.0f, 400.0f, 0, vehicleImg2);
 			}
 

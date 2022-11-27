@@ -33,6 +33,8 @@ namespace MoonPatrol {
 			if (cursor < static_cast<int>(Options::ITCH1)) cursor = static_cast<int>(Options::RETURN);
 			if (cursor == static_cast<int>(Options::ITCH1)) cursor = static_cast<int>(Options::ITCH1);
 			if (cursor == static_cast<int>(Options::ITCH2)) cursor = static_cast<int>(Options::ITCH2);
+			if (cursor == static_cast<int>(Options::ASSETS)) cursor = static_cast<int>(Options::ASSETS);
+			if (cursor == static_cast<int>(Options::SOUNDFX)) cursor = static_cast<int>(Options::SOUNDFX);
 			if (cursor == static_cast<int>(Options::RETURN)) cursor = static_cast<int>(Options::RETURN);
 			if (cursor > static_cast<int>(Options::RETURN)) cursor = static_cast<int>(Options::ITCH1);
 			resetHovering();
@@ -48,11 +50,11 @@ namespace MoonPatrol {
 			case Credits::Options::ITCH2:
 				return RED;
 				break;
-			case Credits::Options::RAYLIB:
-				return GREEN;
+			case Credits::Options::RETURN:
+				return RAYWHITE;
 				break;
 			default:
-				return RAYWHITE;
+				return GREEN;
 				break;
 			}
 		}
@@ -81,6 +83,12 @@ namespace MoonPatrol {
 			case Credits::Options::RAYLIB:
 				return "Visit Raylib";
 				break;
+			case Credits::Options::ASSETS:
+				return "View Assets";
+				break;
+			case Credits::Options::SOUNDFX:
+				return "Check Sound FX";
+				break;
 			case Credits::Options::RETURN:
 				return "Return to Menu";
 				break;
@@ -102,6 +110,15 @@ namespace MoonPatrol {
 				break;
 			case Credits::Options::RAYLIB:
 				OpenURL("https://www.raylib.com");
+				break;
+			case Credits::Options::ASSETS:
+				OpenURL("https://www.flaticon.es/icono-gratis/rover-lunar_4698850");
+				OpenURL("https://opengameart.org/content/spaceship-2");
+				OpenURL("https://opengameart.org/content/space-stuff");
+				break;
+			case Credits::Options::SOUNDFX:
+				OpenURL("https://opengameart.org/content/space-shoot-sounds");
+				OpenURL("https://opengameart.org/content/space-fast-synth-epic-themes");
 				break;
 			case Credits::Options::RETURN:
 				setProgramStatus(ProgramStatus::MAINMENU);

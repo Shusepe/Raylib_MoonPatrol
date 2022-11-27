@@ -148,5 +148,8 @@
     <Media Include="sfx\alienshoot1.wav">
       <Filter>Resources\sfx</Filter>
     </Media>
+    <Media Include="sfx\music.mp3">
+      <Filter>Resources\sfx</Filter>
+    </Media>
   </ItemGroup>
 </Project>
