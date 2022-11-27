@@ -6,6 +6,8 @@ namespace MoonPatrol {
 
 		// Private
 
+		static char obstacleImg[] = "res/obstacle.png";
+
 		void move(Obstacle& obstacle, int direction);
 
 		// --
@@ -27,22 +29,20 @@ namespace MoonPatrol {
 		void draw(Obstacle obstacle) {
 			DrawRectangle(static_cast<int>(obstacle.position.x), static_cast<int>(obstacle.position.y), 
 						  static_cast<int>(obstacle.size.x), static_cast<int>(obstacle.size.y), GREEN);
+
+			DrawTexture(obstacle.sprite, static_cast<int>(obstacle.position.x), static_cast<int>(obstacle.position.y), obstacle.color);
 		}
 
 		void update(Obstacle& obstacle) {
 			move(obstacle, -1);
 			if (obstacle.position.x < (-obstacle.size.x)) {
 				obstacle.position.x = static_cast<float>((GetScreenWidth() * 1) + obstacle.size.x);
+				Game::addScore(5);
 			}
 			if (obstacle.position.y + obstacle.size.y < Game::getFloorElevation(obstacle.position.x + (obstacle.size.x * .5f)) ||
 				obstacle.position.y + obstacle.size.y > Game::getFloorElevation(obstacle.position.x + (obstacle.size.x * .5f))) {
 				obstacle.position.y = Game::getFloorElevation(obstacle.position.x + (obstacle.size.x * .5f)) - obstacle.size.y;
 			}
-		}
-
-		bool wasAvoided(Obstacle obstacle, Vehicles::Vehicle player)
-		{
-			return obstacle.position.x == player.position.x;
 		}
 
 		void init(Obstacle& obstacle, Vector2 position, Vector2 size, float speed) {
@@ -51,6 +51,7 @@ namespace MoonPatrol {
 			obstacle.position = position;
 			obstacle.position.y -= size.y;
 			obstacle.speed = speed;
+			obstacle.sprite = LoadTexture(obstacleImg);
 		}
 
 	}

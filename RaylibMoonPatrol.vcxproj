@@ -188,6 +188,8 @@
     <ClInclude Include="src\utils.h" />
   </ItemGroup>
   <ItemGroup>
+    <Image Include="res\enemy.png" />
+    <Image Include="res\obstacle.png" />
     <Image Include="res\roverLunarP1.png" />
     <Image Include="res\roverLunarP2.png" />
   </ItemGroup>

@@ -10,6 +10,7 @@ namespace MoonPatrol {
 
 		// Private
 
+		static char enemyImg[] = "res/enemy.png";
 		const int amplitude = 50;
 
 		// --
@@ -24,12 +25,15 @@ namespace MoonPatrol {
 			enemy.hitRadius = 0;
 			enemy.speed = 0;
 			enemy.direction = 0;
+			enemy.color = RAYWHITE;
 			enemy.weapon = Weapons::create();
 			return enemy;
 		}
 
 		void draw(Enemy enemy) {
 			DrawCircle(static_cast<int>(enemy.position.x), static_cast<int>(enemy.position.y), enemy.hitRadius, SKYBLUE);
+
+			DrawTexture(enemy.sprite, static_cast<int>(enemy.position.x - enemy.hitRadius), static_cast<int>(enemy.position.y - enemy.hitRadius), enemy.color);
 		}
 
 		void update(Enemy& enemy) {
@@ -54,6 +58,7 @@ namespace MoonPatrol {
 			enemy.speed = speed;
 			enemy.direction = direction;
 			enemy.weapon = weapon;
+			enemy.sprite = LoadTexture(enemyImg);
 		}
 	}
 }

@@ -4,6 +4,7 @@
 #include "game/game.h"
 #include "menu/mainMenu.h"
 #include "menu/credits.h"
+#include "menu/howToPlay.h"
 
 #include <iostream>
 
@@ -31,6 +32,9 @@ namespace MoonPatrol {
 		case ProgramStatus::TWOPLAYERGAME:
 			Game::init(true);
 			break;
+		case ProgramStatus::HOWIPLAY:
+			HowToPlay::init();
+			break;
 		case ProgramStatus::MAINMENU:
 			MainMenu::init();
 			break;
@@ -56,6 +60,9 @@ namespace MoonPatrol {
 				break;
 			case ProgramStatus::TWOPLAYERGAME:
 				Game::update();
+				break;
+			case ProgramStatus::HOWIPLAY:
+				HowToPlay::update();
 				break;
 			case ProgramStatus::MAINMENU:
 				MainMenu::update();

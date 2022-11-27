@@ -102,7 +102,7 @@ namespace MoonPatrol {
 						{
 							points = 25;
 						}
-						Game::setScore(Game::getScore() + points);
+						Game::addScore(points);
 					}
 				}
 			}

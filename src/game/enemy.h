@@ -12,6 +12,8 @@ namespace MoonPatrol {
 			float hitRadius;
 			float speed;
 			int direction;
+			Color color;
+			Texture2D sprite;
 			Weapons::Weapon weapon;
 		};
 

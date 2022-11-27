@@ -11,8 +11,10 @@ namespace MoonPatrol {
 		float getFloorElevation(float xPos);
 		float getTime();
 		int getScore();
+		void addScore(int value);
 
 		void update();
+		void drawHowToPlay();
 		void init(bool enableTwoPlayers);
 	}
 }

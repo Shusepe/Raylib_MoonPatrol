@@ -4,6 +4,7 @@
 #include "inputManager.h"
 #include "collisionManager.h"
 #include "objectManager.h"
+#include "utils.h"
 
 // Objects
 #include "terrain.h"
@@ -145,6 +146,10 @@ namespace MoonPatrol {
 			return score;
 		}
 
+		void addScore(int value) {
+			score += value;
+		}
+
 		void update() {
 			if (!paused) {
 				Input::update(player, player2, twoPlayers);
@@ -180,10 +185,6 @@ namespace MoonPatrol {
 					Vehicles::setColor(player, WHITE);
 					Vehicles::setColor(player2, WHITE);
 				}
-
-				if (Obstacles::wasAvoided(obstacle, player) || Obstacles::wasAvoided(obstacle, player2)) {
-					setScore(5);
-				}
 			}
 
 			if (paused) {
@@ -210,21 +211,21 @@ namespace MoonPatrol {
 			Terrains::init(mountainsBack, GetScreenWidth() * .3f, GetScreenHeight() * .7f, GetScreenHeight() * .4f, 50.0f, { 40, 30, 15, 255 });
 
 			Vehicles::init(player,
-						  { static_cast<float>(GetScreenWidth() * .2f), getFloorElevation(static_cast<float>(GetScreenWidth() * .2f)) },
+						  { static_cast<float>(GetScreenWidth() * .5f), getFloorElevation(static_cast<float>(GetScreenWidth() * .2f)) },
 						  { static_cast<float>(GetScreenHeight() * .2f), static_cast<float>(GetScreenHeight() * .18f) },
 						   400.0f, 400.0f, 400.0f, 0, vehicleImg);
 
 			if (twoPlayers)
 			{
 				Vehicles::init(player2,
-					{ static_cast<float>(GetScreenWidth() * .5f), getFloorElevation(static_cast<float>(GetScreenWidth() * .2f)) },
+					{ static_cast<float>(GetScreenWidth() * .2f), getFloorElevation(static_cast<float>(GetScreenWidth() * .2f)) },
 					{ static_cast<float>(GetScreenHeight() * .2f), static_cast<float>(GetScreenHeight() * .18f) },
 					400.0f, 400.0f, 400.0f, 0, vehicleImg2);
 			}
 
 			Obstacles::init(obstacle, 
 				{ static_cast<float>((GetScreenWidth() * 1) + obstacle.size.x) , getFloorElevation(static_cast<float>((GetScreenWidth() * 1) + (obstacle.size.x * 1.5f))) },
-				{ static_cast<float>(GetScreenHeight() * .1f), static_cast<float>(GetScreenHeight() * .1f) },
+				{ static_cast<float>(GetScreenHeight() * .08f), static_cast<float>(GetScreenHeight() * .1f) },
 				300.0f);
 
 			ObjectManager::init();

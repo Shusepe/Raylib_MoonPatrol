@@ -131,5 +131,11 @@
     <Image Include="res\roverLunarP2.png">
       <Filter>Resources</Filter>
     </Image>
+    <Image Include="res\enemy.png">
+      <Filter>Resources</Filter>
+    </Image>
+    <Image Include="res\obstacle.png">
+      <Filter>Resources</Filter>
+    </Image>
   </ItemGroup>
 </Project>
