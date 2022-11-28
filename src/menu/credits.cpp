@@ -149,7 +149,7 @@ namespace MoonPatrol {
 			Utils::DrawCenteredText("Game made with Raylib, by Mau & Jose", {static_cast<float>(GetScreenWidth() * .5), static_cast<float>(GetScreenHeight() * .2)}, 
 				static_cast<int>(GetScreenHeight() * .05), RAYWHITE);
 			
-			Utils::DrawCenteredText("v0.4", {static_cast<float>(GetScreenWidth() * .1), static_cast<float>(GetScreenHeight() * .05)}, 
+			Utils::DrawCenteredText("v1.0", {static_cast<float>(GetScreenWidth() * .1), static_cast<float>(GetScreenHeight() * .05)}, 
 				static_cast<int>(GetScreenHeight() * .05), RAYWHITE);
 		}
 

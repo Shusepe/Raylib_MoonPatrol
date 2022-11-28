@@ -17,7 +17,7 @@ namespace MoonPatrol {
 	const int screenHeight = 600;
 
 	const char* programName = "Moon Patrol";
-	const char* programVersion = "0.4";
+	const char* programVersion = "1.0";
 
 	static void initRespectiveStatus(ProgramStatus status);
 	static void closeProgram();

@@ -71,19 +71,16 @@ namespace MoonPatrol {
 		}
 
 		void draw(Vehicle vehicle) {
-			//DrawRectangle(static_cast<int>(vehicle.position.x), static_cast<int>(vehicle.position.y),
-						  //static_cast<int>(vehicle.size.x), static_cast<int>(vehicle.size.y), vehicle.color);
-			
 			DrawTexture(vehicle.sprite, static_cast<int>(vehicle.position.x), static_cast<int>(vehicle.position.y), vehicle.color);
 		}
 
 		void update(Vehicle& vehicle) {
-			float floorElevation = Game::getFloorElevation(vehicle.position.x + (vehicle.size.x * .5f));
+			float floorElevation = Game::getFloorElevation(vehicle.position.x + (vehicle.size.x * .001f));
 
 			if (vehicle.position.y + vehicle.size.y + vehicle.heigth < floorElevation) {
 				vehicle.verticalAcceleration += vehicle.gravity * GetFrameTime();
 			}
-			if (vehicle.position.y + vehicle.size.y + vehicle.heigth >= floorElevation) {
+			if (vehicle.position.y + vehicle.size.y >= floorElevation) {
 				if (vehicle.verticalAcceleration > 0) { 
 					vehicle.verticalAcceleration = 0;
 					floored = true;

@@ -23,13 +23,11 @@ namespace MoonPatrol {
 			obstacle.position = { 0, 0 };
 			obstacle.size = { 0, 0 };
 			obstacle.speed = 0;
+			obstacle.color = RAYWHITE;
 			return obstacle;
 		}
 
 		void draw(Obstacle obstacle) {
-			//DrawRectangle(static_cast<int>(obstacle.position.x), static_cast<int>(obstacle.position.y), 
-						  //static_cast<int>(obstacle.size.x), static_cast<int>(obstacle.size.y), GREEN);
-
 			DrawTexture(obstacle.sprite, static_cast<int>(obstacle.position.x), static_cast<int>(obstacle.position.y), obstacle.color);
 		}
 
@@ -53,6 +51,5 @@ namespace MoonPatrol {
 			obstacle.speed = speed;
 			obstacle.sprite = LoadTexture(obstacleImg);
 		}
-
 	}
 }

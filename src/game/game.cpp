@@ -190,11 +190,6 @@ namespace MoonPatrol {
 					Vehicles::setColor(player2, ORANGE);
 					setPaused(true);
 				}
-				else
-				{
-					Vehicles::setColor(player, WHITE);
-					Vehicles::setColor(player2, WHITE);
-				}
 			}
 
 			if (paused) {
